@@ -69,77 +69,80 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 30,
                         letterSpacing: 2),
                   ),
-                ),
+                ), // GOOD EVENING
                 const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Let’s set things up to make you comfy tonight",
                     style: TextStyle(color: Colors.grey),
                   ),
-                ),
+                ), // TEXT DOWN
                 const SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  height: 150,
-                  width: MediaQuery.of(context).size.width,
-                  child: GridView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: weathers.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        childAspectRatio: 0.5,
-                        mainAxisSpacing: 20,
-                        crossAxisSpacing: 10,
-                      ),
-                      itemBuilder: (BuildContext context, index) {
-                        return Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: ExactAssetImage('assets/fondo1.jpg'),
-                              fit: BoxFit.contain,
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 150,
+                    width: MediaQuery.of(context).size.width,
+                    child: GridView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: weathers.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1,
+                          childAspectRatio: 0.5,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 10,
+                        ),
+                        itemBuilder: (BuildContext context, index) {
+                          return Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: ExactAssetImage('assets/fondo1.jpg'),
+                                fit: BoxFit.contain,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
                             ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                          ),
-                          child: Column(
-                            children: [
-                              const Spacer(),
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                                  child: Text(
-                                    weathers[index].temp,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
+                            child: Column(
+                              children: [
+                                const Spacer(),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                                    child: Text(
+                                      weathers[index].temp,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 10, 10, 20),
-                                  child: Text(
-                                    weathers[index].city,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 10, 10, 20),
+                                    child: Text(
+                                      weathers[index].city,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                ),
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
+                ), //LIST WEATHER
                 const SizedBox(
                   height: 15,
                 ),
@@ -162,13 +165,11 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 17,
                         fontWeight: FontWeight.bold),
                   ),
-                ),
+                ), //TEXT BEDROOM
                 const SizedBox(
                   height: 15,
                 ),
-                SizedBox(
-                  height: 170,
-                  width: MediaQuery.of(context).size.width,
+                Expanded(
                   child: GridView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: bedRoom.length,
@@ -255,50 +256,51 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       }),
-                ),
-                SizedBox(
+                ), //LIST BEDROOM
+
+                const SizedBox(height: 15),
+
+                Container(
                   height: 100,
-                  child: Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage('assets/fondo2.jpg'),
-                        fit: BoxFit.contain,
-                      ),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: ExactAssetImage('assets/fondo2.jpg'),
+                      fit: BoxFit.cover,
                     ),
-                    child: Column(
-                      children: const [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 25, 10, 5),
-                            child: Text(
-                              "Power Usage",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 13),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 10, 5),
-                            child: Text(
-                              "27 kWh - 18%",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ],
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
                     ),
                   ),
-                ),
+                  child: Column(
+
+                    children: const [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(10, 25, 10, 5),
+                          child: Text(
+                            "Power Usage",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 13),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                          child: Text(
+                            "27 kWh - 18%",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // POWER USAGE
               ],
             ),
           ),
